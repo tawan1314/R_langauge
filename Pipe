@@ -1,0 +1,47 @@
+# library(package_name)
+library(tidyverse)
+# library() is a function that used to call functions in tidyverse
+
+# data("dataset_name")
+data("ToothGrowth")
+# for call the data
+
+# view(variable)
+View(ToothGrowth)
+# display all rows of the dataset or variable
+
+# head(dataset)
+head(ToothGrowth)
+# for display several rows of the dataset
+
+# install dplyr package
+install.packages("dplyr")
+
+# library(package_name)
+library(dplyr)
+# library() is a function that used to call functions in tidyverse
+
+# create a variable name filter_tg
+filter_tg <- filter(ToothGrowth, dose == 0.5)
+# filter(dataset_name, condition such as len > 5)
+# filter() combined between XLOOKUP and IF
+
+# view(variable)
+View(filter_tg)
+# display all rows of the dataset or variable
+
+# arrange(dataset/variable, sort by column name)
+arrange(filter_tg,len)
+arrange(filter(ToothGrowth, dose == 0.5),len) #same result
+# arrange is a function for sort data
+
+# pipe = %>% shortkey = ctrl + shift + m
+
+# Example
+filter_toothgrowth <- ToothGrowth %>% # display the dataset
+  filter(dose == 0.5) %>% # filter values in the dataset
+  group_by(supp) %>% # group values in the dataset
+  arrange(len) %>% # sort values in the dataset
+  #summarize(mean_len = mean(len,na.rm = T), .group = "drop") # summarize values in the dataset
+
+View(filter_toothgrowth)
