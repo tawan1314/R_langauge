@@ -1,0 +1,41 @@
+#install.packages("tidyverse") install a tidyverse package
+install.packages("tidyverse")
+
+#library(tidyverse) call the tidyverse functions
+library(tidyverse)
+
+#head(dataset) display the first several rows of the data
+head(diamonds)
+
+#str(dataset) return the summaries of each column in the data
+str(diamonds)
+
+#glimpse(dataset) return the summaries of each column in the data
+glimpse(diamonds)
+
+#colnames(dataset) display all of columns in the data
+colnames(diamonds)
+
+#rename() change the variable or column name
+#rename(dataset_name, new_column_name = old_column_name)
+rename(diamonds, carat_new = carat)
+
+##rename() change more than one variable or column name
+rename(diamonds, carat_new = carat, new_cut = cut)
+
+#summarize(dataset, create_column_name = statistics such as mean, average or so on)
+summarize(diamonds, mean_carat = mean(carat))
+
+#ggplot(dataset, aes(x = column, y = column))
+ggplot(diamonds, aes(x = carat, y = price))
+
+#color = column add the color to each values in the visualization
+ggplot(diamonds, aes(x = carat, y = price, color = cut))
+
+#geom_point() make values in visualization to be scatter points
+ggplot(diamonds, aes(x = carat, y = price, color = cut)) + geom_point()
+
+#facet_wrap() seperate the values in the visualization to each component
+ggplot(diamonds, aes(x = carat, y = price)) + geom_point() + facet_wrap(~cut)
+
+#END
